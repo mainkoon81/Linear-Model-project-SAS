@@ -1,4 +1,4 @@
-# Linear-Model-project (R or SAS)
+# Linear-Model-project (R or SAS or Alteryx)
 
 ### [Contents] 
 
@@ -21,7 +21,10 @@ __Lab-04.__ predicting Y
 __Lab-05.__ Finding the source of the variation in a textile factory
   - language: R 
   - func:    
-  
+
+__Lab-06.__ Predicting diamond prices
+  - language: Alteryx 
+  - func:   
 ----------------------------------------------------------------------
 #### >Lab-01. predicting the TCDD level
 
