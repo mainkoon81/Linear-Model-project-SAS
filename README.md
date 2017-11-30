@@ -34,6 +34,10 @@ __Data:__ The data set 'AgOrange.xlsx' is related to a study of Vietnam War vete
 
 
 
+#### >Lab-06. predicting diamond prices
+
+__Story:__ A diamond distributor has recently decided to exit the market and has put up a set of 3,000 diamonds up for auction. Seeing this as a great opportunity to expand its inventory, a jewelry company has shown interest in making a bid. To decide how much to bid, we will use a large database of diamond prices to build a model to predict the price of a diamond based on its attributes. Then we will use the results of that model to make a recommendation for how much the company should bid.
+
 
 
 
