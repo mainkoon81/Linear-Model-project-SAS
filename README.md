@@ -47,14 +47,9 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
    - **Color** represents the color of the diamond, and is rated D through J, with D being the most colorless (and valuable) and J being the most yellow.
    - For the dataset from the database, since the data is in a csv, we’ll need to change the datatypes, so we’ll bring in a select tool and set the numeric data to double and the ordinal data to integer. 
    - Bring it in a scatter plot to take a look at the data to get feel for it. There is only one continuous numeric predictor variable, carat, so we chart carat and price. 
-<img src="https://user-images.githubusercontent.com/31917400/33441105-c29d4d22-d5e9-11e7-9b56-5883bbfe23b8.jpg" width="300" height="300" />      
    - As expected, that price increases with carat weight, but there’s a lot of variation among diamonds of the same weight. The additional predictor variables will help explain some of this variation.
-
-
-
-<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />
-
-
+<img src="https://user-images.githubusercontent.com/31917400/33441105-c29d4d22-d5e9-11e7-9b56-5883bbfe23b8.jpg" width="300" height="300" />  
+<img src="https://user-images.githubusercontent.com/31917400/33441546-cd9b5b14-d5ea-11e7-84f9-1912114f5299.jp" width="600" height="300" />
    
  - **>Step 2. - Build the model:** 
    - When using Alteryx, we do not need to manually create dummy variables before building the model. If we select a categorical variable, like cut or clarity, then Alteryx will automatically create the dummy variables and give the correct regression output. 
