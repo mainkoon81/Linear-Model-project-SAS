@@ -53,10 +53,10 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
    
  - **>Step 2. - Build the model:** 
    - When using Alteryx, we do not need to manually create dummy variables before building the model. If we select a categorical variable, like cut or clarity, then Alteryx will automatically create the dummy variables and give the correct regression output. 
+   - Now we can add a linear regression tool. We start by adding all the predictor variables and look at the results. The first thing we check is the p-value on the predictor variables because we don’t want to include any variables that aren’t statistically significant. If the p-value is less than .05, we can be 95% confident that there exists a relationship between the predictor and target variable.
+<img src="https://user-images.githubusercontent.com/31917400/33443418-6d075866-d5ef-11e7-818d-2d59a341a8ce.jpg" width="600" height="150" />
 
-
-
-<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />
+<img src="https://user-images.githubusercontent.com/31917400/33443182-d9d00322-d5ee-11e7-91f3-d6244ec9394a.jpg" />
 
 
 
