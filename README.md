@@ -50,7 +50,7 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
    - **Clarity** represents the internal purity of the diamond, and falls into 8 categories: I1, SI2, SI1, VS2, VS1, VVS2, VVS1, and IF (in order from least to most pure). These categories can be represented by an ordinal variable, 1-8. 
    - **Color** represents the color of the diamond, and is rated D through J, with D being the most colorless (and valuable) and J being the most yellow.
    - For the dataset from the database, since the data is in a csv, we’ll need to change the datatypes, so we’ll bring in a select tool and set the numeric data to 'double' and the ordinal data to 'integer'. 
-   - Bring it in a scatter plot to take a look at the data and get feel for it. There is only one continuous numeric predictor variable, 'carat', so we chart carat and price. 
+   - Bring it in a scatter plot to take a look at the data and get feel for it. There is only one continuous numeric predictor variable, 'carat', so we chart price and carat. 
    - As expected, that price increases with carat weight, but there’s a lot of variation among diamonds of the same weight. The additional predictor variables will help explain some of this variation.
 <img src="https://user-images.githubusercontent.com/31917400/33441774-62ef790c-d5eb-11e7-845b-5d9a2d787624.jpg" />  
    
@@ -86,21 +86,27 @@ __Story:__ We started working for a company that manufactures and sells high-end
  - Here, clean data is provided for this project, so we can skip the data preparation step of the Problem Solving Framework.
 
  - **>Step 1. – Understand the data:** 
-   - 'p1-customers.xlsx' includes the following information on about 2,300 customers. **Only this dataset has Responded_to_Last_Catalog.**
-   - 'p1-mailinglist.xlsx' is the 250 customers that we need to predict sales. This is the list of customers that the company would send a catalog to. Use this dataset to estimate how much revenue the company can expect if they send out the catalog. It includes all of the fields from P1_Customers.xlsx except for Responded_to_Last_Catalog. **It also includes two additional variables.**
+   - 'p1-customers.xlsx' includes the following information on about 2,300 customers. **Only this dataset has 'Responded_to_Last_Catalog' and 'Avg_Sale_Amount'.**
+   - 'p1-mailinglist.xlsx' is the 250 customers that we need to predict sales. This is the list of customers that the company would send a catalog to. Use this dataset to estimate how much revenue the company can expect if they send out the catalog. It includes all of the fields from P1_Customers.xlsx except for 'Responded_to_Last_Catalog.' **It also includes two additional variables.**
      - **Score_No**: The probability that the customer WILL NOT respond to the catalog and not make a purchase.
      - **Score_Yes**: The probability that the customer WILL respond to the catalog and make a purchase.
    - Check the data type.
-   - Bring it in a scatter plot.
-   - As expected, that price increases with carat weight, but there’s a lot of variation among diamonds of the same weight. The additional predictor variables will help explain some of this variation.   
-
+   - Bring it in a scatter plot. We want to chart 'Avg_Sale_Amount' and '?' but...no idea. 
 
  - **>Step 2. - Modeling & Validation:** 
-   - We want to calculate the expected revenue from these 250 people in order to get expected profit. This means we need to multiply the probability that a person will buy our catalog as well. For example, if a customer were to buy from us, we predict this customer will buy $450 worth of products. At a 30% chance that this person will actually buy from us, we can expect revenue to be $450 x 30% = $135.
-   - 
+   - Now we can add a multiple linear regression tool. We start by adding all the predictor variables. Which one is significant? 
+   - Check P-values.
+   - Check R-Squared. 
+<img src="https://user-images.githubusercontent.com/31917400/33460702-4d67d548-d627-11e7-9a0f-360d3aa2506c.jpg" width="600" height="600" />   
 
+For this model, it so happens that 'City', 'Store_Number', 'Years_as_Customer' variables are statistically not significant, so we can rule out them in. 
+
+<img src="https://user-images.githubusercontent.com/31917400/33460802-ca18845c-d627-11e7-9840-ea0de58dea61.jpg" width="600" height="260" />   
+
+For this model, 'Customer_Segment', 'Responded_to_Last_Catalog', 'Avg_Num_Products_Purchased' variables are significant. R-squared value is above 0.8, which is fine. In this case we can have a lot of confidence that this model will explain a lot of the variation in the amount of sales. 
 
  - **>Step 3. - Calculate the predicted profit for sending catalogs:**
+   - We want to calculate the expected revenue from these 250 people in order to get expected profit. This means we need to multiply the probability that a person will buy our catalog as well. For example, if a customer were to buy from us, we predict this customer will buy $450 worth of products. At a 30% chance that this person will actually buy from us, we can expect revenue to be $450 x 30% = $135.
  
  
  
