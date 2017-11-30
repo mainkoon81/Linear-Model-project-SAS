@@ -62,15 +62,15 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
  - **>Step 3. - Calculate the predicted price for diamond:** 
    - For each diamond, plug in the values for each of the variables into the equation. Then solve the equation to get the estimated diamond price. Bring in the 'new_diamonds' dataset and setting the datatypes correctly. Bring in the score tool. We attach the linear regression to one side, and the new_diamonds dataset to the other. The score tool does not require any configuration, and it will automatically apply the regression results to the new_diamonds data. The results of the Score tool will create a field called "Score" which represents the predicted diamond price for each of the diamonds in the new_diamonds data.
    - Via a scattor plot, we visualize the data ('Score' as the y-variable, and 'carat' as the x-variable). The data is a bit tighter than the larger dataset of diamonds that had actual prices. This shows that while the model does better, it doesn’t account for all the variable. Also, we can see that some of the prices are predicted to be negative, which obviously doesn’t make sense. 
-   - To correct for this, we could set a minimum price or any diamond. However, we can expect some prices to be overestimated and others underestimated. Since we're aggregating all the prices, We left the prediction as is.
-<img src="https://user-images.githubusercontent.com/31917400/33454710-95bf5cc8-d611-11e7-8efc-9664783140e8.jpg" />
-
-
+   - To correct for this, **we could set a minimum price or any diamond**. However, we can expect some prices to be overestimated and others underestimated. Since we're aggregating all the prices, We left the prediction as is.
+<img src="https://user-images.githubusercontent.com/31917400/33454908-3ffe3a7e-d612-11e7-9932-71bd57c9bc6a.jpg" />
 
  - **>Step 4. – Make a recommendation:** 
    - If we have the predicted price for each diamond, we can calculate the bid price for the whole set. The diamond price that the model predicts represents the final retail price the consumer will pay. The company generally purchases diamonds from distributors at 70% of the that price, so our recommended bid price should represent that.
-   
-<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />   
+   - First, attach the Summarize tool to the Score tool. To sum the Score field, click on Score in the panel, then click add and select the Sum function. This will create a field called Sum_Score. 
+   - Next, to multiple the sum_score field by 0.7, attach the formula tool, select sum_score and write the formula: [Sum_Score] * 0.7 which will take the sum of all the predicted diamond prices and multiply it by 0.7.
+   - It gives an answer of approximately $8,230,695.69, which would be our recommended bid price for the 3000 diamonds.
+<img src="https://user-images.githubusercontent.com/31917400/33455477-1c796464-d614-11e7-960d-40cb482e81d8.jpg" width="600" height="300" />   
 
 
 
