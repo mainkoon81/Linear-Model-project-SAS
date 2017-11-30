@@ -103,7 +103,7 @@ __Story:__ We started working for a company that manufactures and sells high-end
  
  
  
- - **>Step 4. – Make a recommendation:** to whether the company should send the catalog or not.
+ - **>Step 4. – Make a recommendation:** to whether the company should send the catalogs or not.
  
  
 
