@@ -53,7 +53,6 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
    
  - **>Step 2. - Build the model:** 
    - When using Alteryx, we do not need to manually create dummy variables before building the model. If we select a categorical variable, like cut or clarity, then Alteryx will automatically create the dummy variables and give the correct regression output. 
-   
    - Now we can add a linear regression tool. We start by adding all the predictor variables and look at the results. The first thing we check is the p-value on the predictor variables because we don’t want to include any variables that aren’t statistically significant. If the p-value is less than .05, we can be 95% confident that there exists a relationship between the predictor and target variable.
    - For this model, it so happens that all the predictor variables are statistically significant, so we can leave them all in. Let’s take a look at the adjusted R-squared. It’s above 0.9, which is good. While a high r-squared is not a guarantee that the model good, in this case we can have a lot of confidence that our model will explain a lot of the variation in prices.
    - Notice that for each of the categorical variables (cut, clarity, and color), there's one value that doesn't have it's own coefficient. As discussed in the Dummy Variables portion of the course, one category represents the baseline case that all other categories are compared against. In this case the baseline is a diamond with D for color, fair for cut, and I1 for clarity.
