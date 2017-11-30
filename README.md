@@ -65,7 +65,9 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
 
 
  - **>Step 3. - Calculate the predicted price for diamond:** 
-   - For each diamond, plug in the values for each of the variables into the equation. Then solve the equation to get the estimated diamond price.
+   - For each diamond, plug in the values for each of the variables into the equation. Then solve the equation to get the estimated diamond price. Bring in the 'new_diamonds' dataset and setting the datatypes correctly. Bring in the score tool. We attach the linear regression to one side, and the new_diamonds dataset to the other. The score tool does not require any configuration, and it will automatically apply the regression results to the new_diamonds data. The results of the Score tool will create a field called "Score" which represents the predicted diamond price for each of the diamonds in the new_diamonds data.
+   - Via a scattor plot, we visualize the data, selecting Score as the y-variable, and carat as the x-variable.
+   - The data is a bit tighter than the larger dataset of diamonds that had actual prices. This shows that while the model does better than the one we created in project 0, it doesn’t account for all the variable. Also, we can see that some of the prices are predicted to be negative, which obviously doesn’t make sense. To correct for this, we could set a minimum price or any diamond. However, we can expect some prices to be overestimated and others underestimated. Since we're aggregating all the prices, We left the prediction as is.
    
 <img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />   
 
