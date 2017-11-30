@@ -25,6 +25,10 @@ __Lab-05.__ Finding the source of the variation in a textile factory
 __Lab-06.__ Predicting diamond prices
   - language: Alteryx 
   - func:   
+  
+__Lab-07.__ 
+  - language: Alteryx
+  - func:
 ----------------------------------------------------------------------
 ### >Lab-01. predicting the TCDD level
 
@@ -61,8 +65,8 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
 
  - **>Step 3. - Calculate the predicted price for diamond:** 
    - For each diamond, plug in the values for each of the variables into the equation. Then solve the equation to get the estimated diamond price. Bring in the 'new_diamonds' dataset and setting the datatypes correctly. Bring in the score tool. We attach the linear regression to one side, and the new_diamonds dataset to the other. The score tool does not require any configuration, and it will automatically apply the regression results to the new_diamonds data. The results of the Score tool will create a field called "Score" which represents the predicted diamond price for each of the diamonds in the new_diamonds data.
-   - Via a scattor plot, we visualize the data ('Score' as the y-variable, and 'carat' as the x-variable). The data is a bit tighter than the larger dataset of diamonds that had actual prices. This shows that while the model does better, it doesn’t account for all the variable. Also, we can see that some of the prices are predicted to be negative, which obviously doesn’t make sense. 
-   - To correct for this, **we could set a minimum price or any diamond**. However, we can expect some prices to be overestimated and others underestimated. Since we're aggregating all the prices, We left the prediction as is.
+   - Via a scattor plot, we visualize the data ('Score' as the y-variable, and 'carat' as the x-variable). The data is a bit tighter than the larger dataset of diamonds that had actual prices. This shows that while on average, the model does better, for any particular diamond, the prediction could be way off! The model doesn’t account for all the variable. There must be other factors affecting the prices that haven't been taken into account by the model(of course). Also, we can see that some of the prices are predicted to be negative, which obviously doesn’t make sense. 
+   - To correct for this, **we could set a minimum price or any diamond**. However, we can expect some prices to be overestimated and others underestimated. Since we're aggregating all the prices(still useful to set a bid price), We left the prediction as is.
 <img src="https://user-images.githubusercontent.com/31917400/33454908-3ffe3a7e-d612-11e7-9932-71bd57c9bc6a.jpg" />
 
  - **>Step 4. – Make a recommendation:** 
@@ -73,7 +77,9 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
 <img src="https://user-images.githubusercontent.com/31917400/33455477-1c796464-d614-11e7-960d-40cb482e81d8.jpg" width="600" height="250" />   
 
 
+### >Lab-07. predicting diamond prices
 
+__Story:__ A diamond distributor has recently decided to exit the market and has put up a set of 3,000 diamonds up for auction. Seeing this as a great opportunit
 
 
 
