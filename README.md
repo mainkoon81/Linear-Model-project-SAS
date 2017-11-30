@@ -70,7 +70,7 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
    - First, attach the Summarize tool to the Score tool. To sum the Score field, click on Score in the panel, then click add and select the Sum function. This will create a field called Sum_Score. 
    - Next, to multiple the sum_score field by 0.7, attach the formula tool, select sum_score and write the formula: [Sum_Score] * 0.7 which will take the sum of all the predicted diamond prices and multiply it by 0.7.
    - It gives an answer of approximately $8,230,695.69, which would be our recommended bid price for the 3000 diamonds.
-<img src="https://user-images.githubusercontent.com/31917400/33455477-1c796464-d614-11e7-960d-40cb482e81d8.jpg" width="600" height="300" />   
+<img src="https://user-images.githubusercontent.com/31917400/33455477-1c796464-d614-11e7-960d-40cb482e81d8.jpg" width="600" height="250" />   
 
 
 
