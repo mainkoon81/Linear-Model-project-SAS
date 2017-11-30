@@ -36,7 +36,7 @@ __Data:__ The data set 'AgOrange.xlsx' is related to a study of Vietnam War vete
 
 ### >Lab-06. predicting diamond prices
 
-__Story:__ A diamond distributor has recently decided to exit the market and has put up a set of 3,000 diamonds up for auction. Seeing this as a great opportunity to expand its inventory, a jewelry company has shown interest in making a bid. To decide how much to bid, we will use a large database of diamond prices to build a model to predict the price of a diamond based on its attributes. Then we will use the results of that model to make a recommendation for how much the company should bid.
+__Story:__ A diamond distributor has recently decided to exit the market and has put up a set of 3,000 diamonds up for auction. Seeing this as a great opportunity to expand its inventory, a jewelry company has shown interest in making a bid. To decide how much to bid, we will use a large database(50,000)of diamond prices to build a model to predict the price of a diamond based on its attributes. Then we will use the results of that model to make a recommendation for how much the company should bid.
 
  - **>Step 1. – Understand the data:** There are two datasets. 
    - 'diamonds.csv' contains the data used to build the regression model. Only this dataset has prices.
@@ -45,17 +45,38 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
    - **Cut** represents the quality of the cut of the diamond, and falls into 5 categories: fair, good, very good, ideal, and premium. These categories can be represented by an ordinal variable, 1-5 (We can decide to use the ordinal or categorical variable).
    - **Clarity** represents the internal purity of the diamond, and falls into 8 categories: I1, SI2, SI1, VS2, VS1, VVS2, VVS1, and IF (in order from least to most pure). These categories can be represented by an ordinal variable, 1-8. 
    - **Color** represents the color of the diamond, and is rated D through J, with D being the most colorless (and valuable) and J being the most yellow.
+   - For the dataset from the database, since the data is in a csv, we’ll need to change the datatypes, so we’ll bring in a select tool and set the numeric data to double and the ordinal data to integer. 
+   - Bring it in a scatter plot to take a look at the data to get feel for it. There is only one continuous numeric predictor variable, carat, so we chart carat and price. 
+<img src="https://user-images.githubusercontent.com/31917400/33441105-c29d4d22-d5e9-11e7-9b56-5883bbfe23b8.jpg" width="300" height="300" />      
+   - As expected, that price increases with carat weight, but there’s a lot of variation among diamonds of the same weight. The additional predictor variables will help explain some of this variation.
+
+
+
+<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />
+
+
    
  - **>Step 2. - Build the model:** 
-   - When using Alteryx, we do not need to manually create dummy variables before building the model. If we select a categorical variable, like cut or clarity, then Alteryx will automatically create the dummy variables and give the correct regression output.
+   - When using Alteryx, we do not need to manually create dummy variables before building the model. If we select a categorical variable, like cut or clarity, then Alteryx will automatically create the dummy variables and give the correct regression output. 
+
+
+
+<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />
+
+
+
 
  - **>Step 3. - Calculate the predicted price for diamond:** 
    - For each diamond, plug in the values for each of the variables into the equation. Then solve the equation to get the estimated diamond price.
+   
+<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />   
+
+
 
  - **>Step 4. – Make a recommendation:** 
    - If we have the predicted price for each diamond, we can calculate the bid price for the whole set. The diamond price that the model predicts represents the final retail price the consumer will pay. The company generally purchases diamonds from distributors at 70% of the that price, so our recommended bid price should represent that.
    
-   
+<img src="https://user-images.githubusercontent.com/31917400/32698915-d8ea47ea-c7a4-11e7-9059-b190b5216afd.jpg" width="600" height="300" />   
 
 
 
