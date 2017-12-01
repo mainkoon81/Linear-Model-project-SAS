@@ -213,20 +213,47 @@ Machine = as.factor(Machine)
 is.factor(Machine)
 aov = aov(Strength ~ Machine + Operator + Machine*Operator); summary(aov)
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33503644-6ed7e42e-d6dc-11e7-9fd0-47cfac51ab06.jpg" width="600" height="250" />    
-
   - Here we cannot rely on F-value and P-value because here R does not differentiate the fixed factor and random factor, but SS-values are still valid; therefore, we can carry on the hypothesis test. 
 ```
 with(te.data, interaction.plot(Machine,Operator,Strength, type = 'b'))
 
 aov.ab = aov(Strength ~ Machine*Operator); summary(aov.ab)
 ```
+<img src="https://user-images.githubusercontent.com/31917400/33503933-72989a6c-d6dd-11e7-8f34-ebff34773802.jpg" />    
 
+**Test H0: Interaction between Machine and Operator is 0?**
+ - F = MSAB/MSE = 14.06/5.06 = 2.778656 -> Definitely close to 1.
+ - F(0.05), (3, 16) = 3.239 -> therefore, we fail to reject H0, i.e An interaction effect is not significant. 
+**This can be seen through the interaction plot as well. The range of strength in this plot is too narrow to say all lines are not parallel.** 
 
-  
+**Test H0: Fixed effect is 0?**
+ - F = MSA/MSAB = 27.11/14.06 = 1.928165 -> Definitely close to 1.
+ - F(0.05), (3, 3) = 9.277 -> therefore, we fail to reject H0, i.e **there is no significant fixed effect.** 
 
+**Test H0: Random effect is 0?**
+ - F = MSB/MSAB = 85.56/14.06 = 6.085349 -> close to 1.
+ - F(0.05), (1, 3) = 10.13 -> therefore, we fail to reject H0, i.e **there is no significant random effect.**
 
+> This test does fully convince me because once there is no interaction effect discovered, we can investigate the source of the contribution to the fixed effect of Machine factor as well as the random effect of Operator factor. In other word, the variance of interaction term is not included in MSA of Machine factor and MSB of Operator factor. 
 
+> Not to mention, we can estimate the value of fixed, random effect and the variances of interaction, fixed, random factor. The estimate of the variance of response variable would be equivalent to that of the variance of residual.  
+
+To perform the analysis of variance for this experiment we will use the 'lmer()' which is in the lme4 package..
+```
+library(lme4)
+fs.lmer = lmer(Strength ~ Machine + (1|Operator) + (1|Machine:Operator)); summary(fs.lmer)
+anova(fs.lmer)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33504513-998d6ede-d6df-11e7-89f2-6312ea69497e.jpg" width="600" height="280" />
+
+> The value of random effect (maximum likelihood) is 97.9
+> The values of fixed effect is 111.8333, 0.3333, 4.6667, 1.6667 respectively.
+> The var of fixed factor is 1.91 and 1.8015. 
+> The var of random factor 6.111
+> The var of interaction term is 3.493
+> Those values seem insignificant.
+
+The estimate of the variance of response variable is only 2.75. Which one is the main source of this variance? We can determine it by comparing their significance of F-values. But as we’ve been through above, there is no significant random effect, fixed effect and interaction. If we need to reduce the variability in the response variable (the fiber strength), we can advise that in the case operator is a source of variation, “train operators,” in the case machine is the source of variance, “calibrate the machine again.” 
 
 ----------------------------------------------------------------------
 ### >Lab-05. predicting diamond prices
