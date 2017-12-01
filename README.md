@@ -180,8 +180,19 @@ summary(final)
 ```
 layout(matrix(c(1,2,3,4), 2,2)) 
 plot(final)
+
+new = data.frame(cIlliteracy=0.7, cMurder=6.8, cHS.Grad=63.9, Population=2541, cIncome=4884, cFrost=166, Area=103766)
+predict.lm(final, newdata = new, interval = 'prediction')
 ```
-<img src="https://user-images.githubusercontent.com/31917400/33500887-6ba0f840-d6d2-11e7-8ac2-c8c8d029d8d3.jpeg" width="300" height="150" /> 
+<img src="https://user-images.githubusercontent.com/31917400/33500887-6ba0f840-d6d2-11e7-8ac2-c8c8d029d8d3.jpeg" width="300" height="200" /> 
+
+<img src="https://user-images.githubusercontent.com/31917400/33502282-5f7385ec-d6d7-11e7-9f7c-ee473ac9377d.jpg" width="600" height="50" /> 
+
+   - Here we produce a Prediction Interval to quantify the uncertainty in the prediction regarding the given observation. The 95% prediction interval of the life expectancy for Colorado is between 65.85481 and 74.50986 years.
+   - The final model we discovered is: 
+E[Life.Exp] = Β0+ Β1(cIlliteracy) + Β2(cMurder) + Β3(cHS.Grad) + Β4(Population) + Β5(cIncome) + Β6(cFrost) + Β7(Area)
+
+
 
 
 
