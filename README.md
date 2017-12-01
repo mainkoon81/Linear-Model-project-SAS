@@ -94,8 +94,9 @@ __Story:__ We started working for a company that manufactures and sells high-end
    - Bring it in a scatter plot. We want to chart 'Avg_Sale_Amount' and '?' but...no idea. 
 
  - **>Step 2. - Modeling & Validation:** 
-   - Now we can add a multiple linear regression tool. We start by adding all the predictor variables. Which one is significant? For Numeric variables we can use scatterplots between an individual variable and the target variable to see if a variable might be a good candidate for a predictor variable.
-   - Check P-values.
+   - Now we can add a multiple linear regression tool. We start by adding all the predictor variables. Which one is significant? 
+   - Scatter Plot: For Numeric variables we can use a scatterplot between a variable and the response variable to see if the variable might be a good candidate for a predictor variable. Do they have an appropriate linear relationship? 
+   - Check P-values (<= 0.05).
    - Check R-Squared. 
 <img src="https://user-images.githubusercontent.com/31917400/33460702-4d67d548-d627-11e7-9a0f-360d3aa2506c.jpg" width="600" height="600" />   
 
