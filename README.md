@@ -246,12 +246,12 @@ anova(fs.lmer)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33504513-998d6ede-d6df-11e7-89f2-6312ea69497e.jpg" width="600" height="280" />
 
-> The value of random effect (maximum likelihood) is 97.9
-> The values of fixed effect is 111.8333, 0.3333, 4.6667, 1.6667 respectively.
-> The var of fixed factor is 1.91 and 1.8015. 
-> The var of random factor 6.111
-> The var of interaction term is 3.493
-> Those values seem insignificant.
+ - The value of random effect (maximum likelihood) is 97.9
+ - The values of fixed effect is 111.8333, 0.3333, 4.6667, 1.6667 respectively.
+ - The var of fixed factor is 1.91 and 1.8015. 
+ - The var of random factor 6.111
+ - The var of interaction term is 3.493
+ - Those values seem insignificant.
 
 The estimate of the variance of response variable is only 2.75. Which one is the main source of this variance? We can determine it by comparing their significance of F-values. But as we’ve been through above, there is no significant random effect, fixed effect and interaction. If we need to reduce the variability in the response variable (the fiber strength), we can advise that in the case operator is a source of variation, “train operators,” in the case machine is the source of variance, “calibrate the machine again.” 
 
