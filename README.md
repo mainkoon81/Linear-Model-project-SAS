@@ -30,14 +30,48 @@ __Lab-07.__ Mailing catalog helps increase revenue?
   - language: Alteryx
   - func:
 ----------------------------------------------------------------------
-### >Lab-01. predicting the TCDD level
+### >Lab-01. predicting the TCDD level in 'fat tissue'
 
-__Data:__ The data set 'AgOrange.xlsx' is related to a study of Vietnam War veterans who were exposed to Agent-Orange(TCDD) herbicide during the confict. The data set contians TCDD levels in both "plasma" and "fat tissue" for 20 veterans. One goal of us is to determine the degree of linear association between these two variables. We want to use "plasma" TCDD level to predict the TCDD level in "fat tissue".
+__Story:__ There is a study of Vietnam War veterans who were exposed to Agent-Orange(TCDD) herbicide during the confict. One goal of us is to determine the degree of linear association between these two variables 'TCDD_plasma' and 'TCDD_fat tissue'. We want to use "plasma" TCDD level to predict the TCDD level in "fat tissue".
+ - **>Step 1. - Understand the data:**
+   - 'AgOrange.xlsx' contains TCDD levels in both "plasma" and "fat tissue" for 20 veterans. 
+   - First, we want to chart TCDD levels in fat tissue (Y-axis) against TCDD levels in blood plasma (X-axis) to detect a linear relationship. 
+   - We can see some linear relationship from its scatter plot. 
+```
+proc import datafile='/folders/myfolders/sasuser.v94/AgOrange.xlsx' out=WORK.TCDD
+dbms=xlsx replace;
+getnames=yes;
+run;
+
+proc plot data=WORK.TCDD;
+plot FatTissue_TCDD*Plasma_TCDD;
+run;
+```
+ - **>Step 2. - Build the model:** 
+   - Now we want to find the least squares estimates of the slope and intercept of the best fitting regression line.
+```
+proc reg data=WORK.TCDD;
+model FatTissue_TCDD = Plasma_TCDD/CLB;
+run;
+```
+<img src="https://user-images.githubusercontent.com/31917400/33491281-9f135202-d6b1-11e7-8967-c28d46dec7f2.jpg" width="300" height="200" />
+<img src="https://user-images.githubusercontent.com/31917400/33490745-08e60c26-d6b0-11e7-94c3-5177b7d5fce4.jpg" width="600" height="100" />
+ If we check the t-statistic value and p-value for testing the hypotheses:[H0: β1 = 0 vs H1: β1 ≠ 0], using a significance level α = 0.01, then we can obtain 99% confidence intervals for β1 and β0. 
+ 
+```
+proc reg data=WORK.TCDD;
+model FatTissue_TCDD = Plasma_TCDD/CLB ALPHA=0.01;
+test_slope0: test Plasma_TCDD = 0;
+run;
+```
+<img src="https://user-images.githubusercontent.com/31917400/33491268-9849139e-d6b1-11e7-96f5-cf98ea67d069.jpg" width="600" height="100" />
 
 
 
 
 
+
+----------------------------------------------------------------------
 ### >Lab-06. predicting diamond prices
 
 __Story:__ A diamond distributor has recently decided to exit the market and has put up a set of 3,000 diamonds up for auction. Seeing this as a great opportunity to expand its inventory, a jewelry company has shown interest in making a bid. To decide how much to bid, we will use a large database(50,000)of diamond prices to build a model to predict the price of a diamond based on its attributes. Then we will use the results of that model to make a recommendation for how much the company should bid.
