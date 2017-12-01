@@ -1,4 +1,4 @@
-# Linear-Model-project (R or SAS or Alteryx)
+# Linear-Model-project (SAS or R or Alteryx)
 
 ### [Contents] 
 
@@ -29,6 +29,7 @@ __Lab-06.__ Mailing catalog helps increase revenue?
 ### >Lab-01. predicting the TCDD level in 'fat tissue'
 
 __Story:__ There is a study of Vietnam War veterans who were exposed to Agent-Orange(TCDD) herbicide during the confict. One goal of us is to determine the degree of linear association between these two variables 'TCDD_plasma' and 'TCDD_fat tissue'. We want to use "plasma" TCDD level to predict the TCDD level in "fat tissue".
+__Process:__
  - **>Step 1. - Understand the data:**
    - 'AgOrange.xlsx' contains TCDD levels in both "plasma" and "fat tissue" for 20 veterans. 
    - First, we want to chart TCDD levels in fat tissue (Y-axis) against TCDD levels in blood plasma (X-axis) to detect a linear relationship. 
@@ -66,10 +67,13 @@ run;
 ### >Lab-02. predicting Ireland’s health-care spending 
 
 __Story:__ Ireland’s GDP per capita in 2010 was $48,260.  Can we predict Ireland’s health care spending in 2010? How to  quantify the uncertainty of the prediction?
- - **>Approach**
+__Process:__
+ - **>Step 1. - Understand the Data:**
    - 'WDIdata.xlsx' informs that the GDP per capita and Health spending for 186 countries in 2010. 
-   - We use simple linear regression to model the log of health care spending as a function of the log of GDP per capita. First, we examine the relationship  between the two variables - the log of health care spending (dependent) V.S the log of GDP per capita (independent). 
-   - With the regression model: Log(y) = β0 +  β1[log(x)], if fitting the regression model to the data, we can clearly see that there is a positive linear relationship between the two variables.  
+   - First, we examine the relationship  between the two variables - the log of health care spending (dependent) V.S the log of GDP per capita (independent). 
+ - **>Step 2. - Build the model:**  
+   - We use simple linear regression to model the log of health care spending as a function of the log of GDP per capita. 
+   - With the regression model: Log(y) = β0 +  β1[log(x)], if fitting the model to the data, we can clearly see that there is a positive linear relationship between the two variables.  
 ```
 proc import datafile='/folders/myfolders/sasuser.v94/WDIdata.xlsx' out=WORK.myid0
 dbms=xlsx replace;
