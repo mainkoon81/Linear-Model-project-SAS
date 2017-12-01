@@ -113,6 +113,8 @@ For this model, 'Customer_Segment', 'Responded_to_Last_Catalog', 'Avg_Num_Produc
 It gives an answer of approximately $47,224.87, which would be our estimated total payment that the 250 new customers would make. 
  
  - **>Step 4. – Make a recommendation:** to whether the company should send the catalogs or not.
+   -  We need to factor in the gross margin and cost of sending the catalog to each person.
+   - 
  
  
  
