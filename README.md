@@ -166,10 +166,22 @@ anova(fitfull2)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33501505-b39019fe-d6d4-11e7-98d3-109bb86b830d.jpg" width="500" height="300" />
 
+   - In this model_2, seemingly, two predictors are obviously significant – “cMurder” and “cFrost.” However, what should be noticed in the global F-test is that the most significant Sum of Squares and F-values come from “cilliteracy” and “cMurder” variables. Bearing this in mind, we might rule out some insignificant terms from the model which are “Population”, “Area” and “cIncome” (model_3). However, we also try the stepwise method with backwards elimination to choose the best subset of variables to include in the ﬁnal model. 
+```
+fitnull <- lm(Life.Exp~., data=census.data2); summary(fitnull)
+fitfull <- lm(Life.Exp~cIlliteracy+cMurder+cHS.Grad+Population+cIncome+cFrost+Area + cIlliteracy*cMurder + 
+                cIlliteracy*cHS.Grad + cIlliteracy*cFrost + cIncome*cHS.Grad, data = census.data2); summary(fitfull)
+final<- step(fitfull, scope = list(lower=fitnull, upper=fitfull), direction='backward', trace = T)
+summary(final)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33501820-e31d2224-d6d5-11e7-8411-9843e4570bc1.jpg" width="300" height="280" />   
 
-
-
-
+   - The stepwise method suggests that the best model comes with the terms – cIlliteracy, cMurder, cHS.Grad, Population, cIncome, cFrost, Area. AIC value is -22.59 which is the smallest which indicates the model is the best. Now we check the reliability of the final model by referencing the four different plots as follows.      
+```
+layout(matrix(c(1,2,3,4), 2,2)) 
+plot(final)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33500887-6ba0f840-d6d2-11e7-8ac2-c8c8d029d8d3.jpeg" width="300" height="150" /> 
 
 
 
