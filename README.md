@@ -70,9 +70,51 @@ run;
 ### >Lab-02. predicting Ireland’s health-care spending 
 
 __Story:__ Ireland’s GDP per capita in 2010 was $48,260.  Can we predict Ireland’s health care spending in 2010? How to  quantify the uncertainty of the prediction?
- - **>Step 1. - Understand the data:**
+ - **>Approach**
    - 'WDIdata.xlsx' informs that the GDP per capita and Health spending for 186 countries in 2010. 
    - We use simple linear regression to model the log of health care spending as a function of the log of GDP per capita. First, we examine the relationship  between the two variables - the log of health care spending (dependent) V.S the log of GDP per capita (independent). 
+   - With the regression model: Log(y) = β0 +  β1[log(x)], if fitting the regression model to the data, we can clearly see that there is a positive linear relationship between the two variables.  
+```
+proc import datafile='/folders/myfolders/sasuser.v94/WDIdata.xlsx' out=WORK.myid0
+dbms=xlsx replace;
+getnames=yes;
+run;
+
+data WORK.myid00;
+set WORK.myid0;
+	lny_healthspend=log(healthspend);
+	lnx_GDP=log(GDP);
+run;
+
+proc reg data=WORK.myid00;
+	model lny_healthspend=lnx_GDP/cli clb alpha=0.05; 
+	output out=WORK.myid00 p=yhat r=res;
+run;
+
+proc corr data=WORK.myid00 pearson; 
+	var lny_healthspend lnx_gdp;
+run;	
+
+proc plot data=WORK.myid00; 
+	plot res*yhat / vpos=20 hpos=75;
+	title 'plot of residuals against predicted values';
+run;
+
+proc univariate data=WORK.myid00;
+	var res;
+	qqplot res / normal (mu=est sigma=est);
+run;
+```
+<img src="https://user-images.githubusercontent.com/31917400/33493744-f61c0042-d6b8-11e7-8a5e-f926e9db2c8e.jpg" />
+
+ - In the ANOVA table, we can see that the significant F and P value (F=2301.78, P<0.0001) for the model. It is safe to say that the model explains a signiﬁcant amount of the data variation(92.6%) which is stated by the value of Adjusted R-Sq(0.9256). 
+ - It is highly unlikely that β0 and β1 is 0 as can be seen through p_value (t-value for ttest is -6.30 and 47.98, given that p-value=0.0001, we reject the null hypothesis). 
+ - Instead the analysis shows that the estimate of β0 and β1 is -0.96 and 0.85 respectively. So we can write the regression equation from these parameter estimates: Log(y) = (-0.96) +  (0.85)log(x) 
+ - Based on the plot of residuals against fitted values, The model fit well to this dataset because the data are evenly distributed along the line 'res=0.'
+ - As stated in the question, we need to predict Ireland’s health care spending when its GDP per capita was $48,260. We plug ‘x=48,260’ into the regression equation as follows.
+<img src="https://user-images.githubusercontent.com/31917400/33494133-1fa79588-d6ba-11e7-8ebd-dcdbc78dcf8c.JPG" width="600" height="300" />
+
+
 
 
 
