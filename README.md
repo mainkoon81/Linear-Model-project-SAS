@@ -29,6 +29,7 @@ __Lab-06.__ Mailing catalog helps increase revenue?
 ### >Lab-01. predicting the TCDD level in 'fat tissue'
 
 __Story:__ There is a study of Vietnam War veterans who were exposed to Agent-Orange(TCDD) herbicide during the confict. One goal of us is to determine the degree of linear association between these two variables 'TCDD_plasma' and 'TCDD_fat tissue'. We want to use "plasma" TCDD level to predict the TCDD level in "fat tissue".
+
 __Process:__
  - **>Step 1. - Understand the data:**
    - 'AgOrange.xlsx' contains TCDD levels in both "plasma" and "fat tissue" for 20 veterans. 
@@ -41,14 +42,14 @@ getnames=yes;
 run;
 
 proc plot data=WORK.TCDD;
-plot FatTissue_TCDD*Plasma_TCDD;
+	plot FatTissue_TCDD*Plasma_TCDD;
 run;
 ```
  - **>Step 2. - Build the model:** 
    - Now we want to find the least squares estimates of the slope and intercept of the best fitting regression line.
 ```
 proc reg data=WORK.TCDD;
-model FatTissue_TCDD = Plasma_TCDD/CLB;
+	model FatTissue_TCDD = Plasma_TCDD/CLB;
 run;
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33491281-9f135202-d6b1-11e7-8967-c28d46dec7f2.jpg" width="300" height="200" />
@@ -57,8 +58,8 @@ If we check the t-statistic value and p-value for testing the hypotheses:[H0: β
  
 ```
 proc reg data=WORK.TCDD;
-model FatTissue_TCDD = Plasma_TCDD/CLB ALPHA=0.01;
-test_slope0: test Plasma_TCDD = 0;
+	model FatTissue_TCDD = Plasma_TCDD/CLB ALPHA=0.01;
+	test_slope0: test Plasma_TCDD = 0;
 run;
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33491268-9849139e-d6b1-11e7-96f5-cf98ea67d069.jpg" width="600" height="100" />
@@ -67,6 +68,7 @@ run;
 ### >Lab-02. predicting Ireland’s health-care spending 
 
 __Story:__ Ireland’s GDP per capita in 2010 was $48,260.  Can we predict Ireland’s health care spending in 2010? How to  quantify the uncertainty of the prediction?
+
 __Process:__
  - **>Step 1. - Understand the Data:**
    - 'WDIdata.xlsx' informs that the GDP per capita and Health spending for 186 countries in 2010. 
@@ -117,7 +119,38 @@ run;
 ----------------------------------------------------------------------
 ### >Lab-03. predicting life expectancy of people  
 
-__Story:__ There is a study of Vietnam War veterans who were exposed to Agent-Orange(TCDD) herbicide during the confict. One goal of us is to determine the deg
+__Story:__ Can we predict life expectancy of people by using information of their income, education level, murder rate of their location, the size of their communities, etc ? 
+
+__Process:__
+ - **>Step 1. - Understand the Data:**
+   - 'USCensusData.csv' We have a dataset that comes from US census of 49 states, and this includes all information we need 
+     - Population size
+     - Income level
+     - Illiteracy rate
+     - Murder rate
+     - HS.Grad rate
+     - number of freezing days
+     - Area size
+   - What we are aiming at is to build the best regression model by investigating the predictors’ contributions to a response variable, and the **possible interactions** between predictors. 
+   - Once we finalize our model,  we would check that the model assumptions are satisﬁed, so that we ensure the reliability of the model and carry out an actual prediction for a given data point.  
+   - First, plotting relationships between variables and producing a correlation matrix can give us a hint where to start dealing with collinearity that might reside within the variables.
+```
+census.data <- read.csv('C:/Users/Minkun/Desktop/classes_1/30250_Linear Models ii/LAB/data/USCensusData.csv', header = T)
+pairs(census.data)
+cor(census.data[,2:9])
+
+census.data$cMurder = census.data$Murder - mean(census.data$Murder)
+census.data$cIlliteracy = census.data$Illiteracy - mean(census.data$Illiteracy)
+census.data$cHS.Grad = census.data$HS.Grad - mean(census.data$HS.Grad)
+census.data$cFrost = census.data$Frost - mean(census.data$Frost)
+census.data$cIncome = census.data$Income - mean(census.data$Income); census.data
+```
+<img src="https://user-images.githubusercontent.com/31917400/33500882-6458f358-d6d2-11e7-9adc-ec92643d615b.jpg" />
+
+   
+ - **>Step 2. - Build the model:**  
+   - We use simple linear regression to model the log of health care spending as a function of the log of GDP per capita. 
+   - With the regression mode
 
 
 
