@@ -26,7 +26,7 @@ __Lab-06.__ Predicting diamond prices
   - language: Alteryx 
   - func:   
   
-__Lab-07.__ Predicting profit by mailing catalogs 
+__Lab-07.__ Mailing catalog helps increase revenue?
   - language: Alteryx
   - func:
 ----------------------------------------------------------------------
@@ -77,7 +77,7 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
 <img src="https://user-images.githubusercontent.com/31917400/33455477-1c796464-d614-11e7-960d-40cb482e81d8.jpg" width="600" height="250" />   
 
 ----------------------------------------------------------------------
-### >Lab-07. predicting profit by mailing catalogs 
+### >Lab-07. Mailing catalog helps increase revenue?
 
 __Story:__ We started working for a company that manufactures and sells high-end home goods. Last year the company sent out its first print catalog, and is preparing to send out this year's catalog in the coming months. The company has 250 new customers from their mailing list that they want to send the catalog to. Our manager has been asked to determine how much profit the company can expect from sending a catalog to these customers. We are assigned to help our manager run the numbers. While fairly knowledgeable about data analysis, our manager is not very familiar with predictive models. We’ve been asked to predict the expected profit from these 250 new customers. Management does not want to send the catalog out to these new customers unless the expected profit contribution exceeds $10,000.
  - The costs of printing and distributing is $6.50 per catalog.
