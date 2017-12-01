@@ -106,13 +106,14 @@ For this model, it so happens that 'City', 'Store_Number', 'Years_as_Customer' v
 For this model, 'Customer_Segment', 'Responded_to_Last_Catalog', 'Avg_Num_Products_Purchased' variables are significant. R-squared value is above 0.8, and we can say with a lot of confidence that this model will explain a lot of the variation in the amount of sales. More importantly, we could confirm that whether responding to catalog or not is heavily associated to the amount of sales. 
 
  - **>Step 3. - Calculate the predicted profit for sending out catalogs:**
-   - Now we can plug in the values of 'p1-mailinglist.xlsx' dataset into the equation. Variables involved here would be 'Customer_Segment', 'Avg_Num_Products_Purchased'. 'Responded_to_Last_Catalog' variable would be ignored here for the sake of model consistency. 'Score_No','Score_Yes' would be used to calculate the expected final profit later on.  
+   - Now we can plug in the values of 'p1-mailinglist.xlsx' dataset into the equation. Variables involved here would be 'Customer_Segment', 'Avg_Num_Products_Purchased'. 'Responded_to_Last_Catalog' variable would be ignored here for the sake of model consistency. But we include 'Score_No','Score_Yes' to calculate the expected final profit later on.  
    - We want to calculate the expected revenue from these 250 people. This means we need to multiply the probability that a person will buy our catalog as well. For example, if a customer were to buy from us, we predict this customer will buy $450 worth of products. At a 30% chance that this person will actually buy from us, we can expect revenue to be $450 x 30% = $135.
-   
- 
- 
+<img src="https://user-images.githubusercontent.com/31917400/33462413-53b2791e-d62f-11e7-9356-1bc8e653506c.jpg" width="600" height="200" /> 
+
+It gives an answer of approximately $47,224.87, which would be our estimated total payment that the 250 new customers would make. 
  
  - **>Step 4. – Make a recommendation:** to whether the company should send the catalogs or not.
+ 
  
  
 
