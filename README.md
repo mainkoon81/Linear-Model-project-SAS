@@ -14,19 +14,15 @@ __Lab-03.__ predicting life expectancy of people
   - language: R 
   - Multiple Linear Model  
    
-__Lab-04.__ predicting Y 
+__Lab-04.__ Finding the source of the variation in a textile factory
   - language: R 
   - Multiple Linear Model    
 
-__Lab-05.__ Finding the source of the variation in a textile factory
-  - language: R 
-  - Multiple Linear Model    
-
-__Lab-06.__ Predicting diamond prices
+__Lab-05.__ Predicting diamond prices
   - language: Alteryx 
   - Multiple Linear Model   
   
-__Lab-07.__ Mailing catalog helps increase revenue?
+__Lab-06.__ Mailing catalog helps increase revenue?
   - language: Alteryx
   - Multiple Linear Model
 ----------------------------------------------------------------------
@@ -114,7 +110,10 @@ run;
  - As stated in the question, we need to predict Ireland’s health care spending when its GDP per capita was $48,260. We plug ‘x=48,260’ into the regression equation as follows.
 <img src="https://user-images.githubusercontent.com/31917400/33494133-1fa79588-d6ba-11e7-8ebd-dcdbc78dcf8c.JPG" width="600" height="300" />
 
+----------------------------------------------------------------------
+### >Lab-03. predicting life expectancy of people  
 
+__Story:__ There is a study of Vietnam War veterans who were exposed to Agent-Orange(TCDD) herbicide during the confict. One goal of us is to determine the deg
 
 
 
@@ -128,7 +127,7 @@ run;
 
 
 ----------------------------------------------------------------------
-### >Lab-06. predicting diamond prices
+### >Lab-05. predicting diamond prices
 
 __Story:__ A diamond distributor has recently decided to exit the market and has put up a set of 3,000 diamonds up for auction. Seeing this as a great opportunity to expand its inventory, a jewelry company has shown interest in making a bid. To decide how much to bid, we will use a large database(50,000)of diamond prices to build a model to predict the price of a diamond based on its attributes. Then we will use the results of that model to make a recommendation for how much the company should bid.
 
@@ -167,7 +166,7 @@ __Story:__ A diamond distributor has recently decided to exit the market and has
 <img src="https://user-images.githubusercontent.com/31917400/33455477-1c796464-d614-11e7-960d-40cb482e81d8.jpg" width="600" height="250" />   
 
 ----------------------------------------------------------------------
-### >Lab-07. Mailing catalog helps increase revenue?
+### >Lab-06. Mailing catalog helps increase revenue?
 
 __Story:__ We started working for a company that manufactures and sells high-end home goods. Last year the company sent out its first print catalog, and is preparing to send out this year's catalog in the coming months. The company has 250 new customers from their mailing list that they want to send the catalog to. Our manager has been asked to determine how much profit the company can expect from sending a catalog to these customers. We are assigned to help our manager run the numbers. While fairly knowledgeable about data analysis, our manager is not very familiar with predictive models. We’ve been asked to predict the expected profit from these 250 new customers. Management does not want to send the catalog out to these new customers unless the expected profit contribution exceeds $10,000.
  - The costs of printing and distributing is $6.50 per catalog.
@@ -210,23 +209,3 @@ It gives an answer of approximately $47,224.87, which would be our estimated tot
      - Total profit: 23,612.5 - 1,625 = 21,987.5
    - It seems the expected profit contribution exceeds $10,000, thus we can conclude that the company should send out the catalogs. 
    
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
