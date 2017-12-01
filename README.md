@@ -115,7 +115,7 @@ It gives an answer of approximately $47,224.87, which would be our estimated tot
  
  - **>Step 4. – Make a recommendation:** to whether the company should send the catalogs or not.
    - We need to factor in the gross margin and cost of sending the catalog to each person.
-     - The costs of printing and distributing of catalogs: 250 x 6.5 = 1,625
+     - The costs of printing and distributing of catalogs for 250 customers: 250 x 6.5 = 1,625
      - The average gross margin through catalogs: 47,225 x 0.5 =  23,612.5
      - Total profit: 23,612.5 - 1,625 = 21,987.5
    - It seems the expected profit contribution exceeds $10,000, thus we can conclude that the company should send out the catalogs. 
