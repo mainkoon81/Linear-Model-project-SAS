@@ -4,31 +4,31 @@
 
 __Lab-01.__ predicting the TCDD level in fat tissue
   - language: SAS 
-  - func:
+  - Single Linear Model
 
 __Lab-02.__ predicting Ireland’s health-care spending  
   - language: SAS 
-  - func:  
+  - Single Linear Model
 
 __Lab-03.__ predicting life expectancy of people  
   - language: R 
-  - func:  
+  - Multiple Linear Model  
    
 __Lab-04.__ predicting Y 
   - language: R 
-  - func:    
+  - Multiple Linear Model    
 
 __Lab-05.__ Finding the source of the variation in a textile factory
   - language: R 
-  - func:    
+  - Multiple Linear Model    
 
 __Lab-06.__ Predicting diamond prices
   - language: Alteryx 
-  - func:   
+  - Multiple Linear Model   
   
 __Lab-07.__ Mailing catalog helps increase revenue?
   - language: Alteryx
-  - func:
+  - Multiple Linear Model
 ----------------------------------------------------------------------
 ### >Lab-01. predicting the TCDD level in 'fat tissue'
 
@@ -56,7 +56,7 @@ run;
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33491281-9f135202-d6b1-11e7-8967-c28d46dec7f2.jpg" width="300" height="200" />
 <img src="https://user-images.githubusercontent.com/31917400/33490745-08e60c26-d6b0-11e7-94c3-5177b7d5fce4.jpg" width="600" height="100" />
- If we check the t-statistic value and p-value for testing the hypotheses:[H0: β1 = 0 vs H1: β1 ≠ 0], using a significance level α = 0.01, then we can obtain 99% confidence intervals for β1 and β0. 
+If we check the t-statistic value and p-value for testing the hypotheses:[H0: β1 = 0 vs H1: β1 ≠ 0], using a significance level α = 0.01, then we can obtain 99% confidence intervals for β1 and β0. 
  
 ```
 proc reg data=WORK.TCDD;
@@ -65,6 +65,20 @@ test_slope0: test Plasma_TCDD = 0;
 run;
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33491268-9849139e-d6b1-11e7-96f5-cf98ea67d069.jpg" width="600" height="100" />
+
+----------------------------------------------------------------------
+### >Lab-02. predicting Ireland’s health-care spending 
+
+__Story:__ Ireland’s GDP per capita in 2010 was $48,260.  Can we predict Ireland’s health care spending in 2010? How to  quantify the uncertainty of the prediction?
+ - **>Step 1. - Understand the data:**
+   - 'WDIdata.xlsx' informs that the GDP per capita and Health spending for 186 countries in 2010. 
+   - We use simple linear regression to model the log of health care spending as a function of the log of GDP per capita. First, we examine the relationship  between the two variables - the log of health care spending (dependent) V.S the log of GDP per capita (independent). 
+
+
+
+
+
+
 
 
 
