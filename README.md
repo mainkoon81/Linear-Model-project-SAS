@@ -103,7 +103,7 @@ For this model, it so happens that 'City', 'Store_Number', 'Years_as_Customer' v
 
 <img src="https://user-images.githubusercontent.com/31917400/33460802-ca18845c-d627-11e7-9840-ea0de58dea61.jpg" width="600" height="260" />   
 
-For this model, 'Customer_Segment', 'Responded_to_Last_Catalog', 'Avg_Num_Products_Purchased' variables are significant. R-squared value is above 0.8, and we can say with a lot of confidence that this model will explain a lot of the variation in the amount of sales. More importantly, we could confirm that whether responding to catalog or not is heavily associated to the amount of sales. 
+For this model, 'Customer_Segment', 'Responded_to_Last_Catalog', 'Avg_Num_Products_Purchased' variables are significant. R-squared value is above 0.8, and we can say with a lot of confidence that this model will explain a lot of the variation in the amount of sales. More importantly, we could confirm that whether responding to catalog or not is somehow associated to the amount of sales. 
 
  - **>Step 3. - Calculate the predicted profit for sending out catalogs:**
    - Now we can plug in the values of 'p1-mailinglist.xlsx' dataset into the equation. Variables involved here would be 'Customer_Segment', 'Avg_Num_Products_Purchased'. 'Responded_to_Last_Catalog' variable would be ignored here for the sake of model consistency. But we include 'Score_No','Score_Yes' to calculate the expected final profit later on.  
