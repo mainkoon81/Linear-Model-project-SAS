@@ -86,8 +86,8 @@ __Story:__ We started working for a company that manufactures and sells high-end
  - Here, clean data is provided for this project, so we can skip the data preparation step of the Problem Solving Framework.
 
  - **>Step 1. – Understand the data:** 
-   - 'p1-customers.xlsx' includes the following information on about 2,300 customers. **Only this dataset has 'Responded_to_Last_Catalog' and 'Avg_Sale_Amount'.**
-   - 'p1-mailinglist.xlsx' is the 250 customers that we need to predict sales. This is the list of customers that the company would send a catalog to. Use this dataset to estimate how much revenue the company can expect if they send out the catalog. It includes all of the fields from P1_Customers.xlsx except for 'Responded_to_Last_Catalog.' **It also includes two additional variables.**
+   - 'p1-customers.xlsx'(train-set) includes the following information on about 2,300 customers. **Only this dataset has 'Responded_to_Last_Catalog' and 'Avg_Sale_Amount'.**
+   - 'p1-mailinglist.xlsx'(test-set) is the 250 customers that we need to predict sales. This is the list of customers that the company would send a catalog to. Use this dataset to estimate how much revenue the company can expect if they send out the catalog. It includes all of the fields from P1_Customers.xlsx except for 'Responded_to_Last_Catalog.' **It also includes two additional variables.**
      - **Score_No**: The probability that the customer WILL NOT respond to the catalog and not make a purchase.
      - **Score_Yes**: The probability that the customer WILL respond to the catalog and make a purchase.
    - Check the data type.
