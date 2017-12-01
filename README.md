@@ -12,11 +12,11 @@ __Lab-02.__ predicting Ireland’s health-care spending
 
 __Lab-03.__ predicting life expectancy of people  
   - language: R 
-  - Multiple Linear Model  
+  - Multiple Linear Model with interactions 
    
 __Lab-04.__ Finding the source of the variation in a textile factory
   - language: R 
-  - Multiple Linear Model    
+  - Multiple Linear Model with Mixed Effect   
 
 __Lab-05.__ Predicting diamond prices
   - language: Alteryx 
@@ -192,6 +192,38 @@ predict.lm(final, newdata = new, interval = 'prediction')
    - The final model we discovered is: 
 E[Life.Exp] = Β0+ Β1(cIlliteracy) + Β2(cMurder) + Β3(cHS.Grad) + Β4(Population) + Β5(cIncome) + Β6(cFrost) + Β7(Area)
 
+----------------------------------------------------------------------
+### >Lab-04. Finding the source of the variation in a textile factory
+
+__Story:__  A textile factory produces synthetic ﬁbre for use in the manufacture of clothing. A quality control engineer has notice that the strength of this ﬁber has been variable recently and she conducts an experiment to try to ﬁnd the source of the variation. Four machines in the factory produce the ﬁbre and 3 machine operators are selected at random from the factory personnel to take part in the experiment. Each operator produces 2 strings of ﬁbre from each of the 4 machines. The order in which this happens is randomised to eliminate bias. Can we make any recommendations to the engineer about how they might reduce the variability in fibre strength 
+based on out findings? 
+
+__Process:__
+ - **>Step 1. - Understand the data:**
+   - 'FiberStrength.csv' contains two categorical variables - 'Operator','Machine', and one numerical variable - 'Strength'. 
+   - This experiment should implement a mixed factor effect model because we are only interested in the outputs from the four machines which should be characterized as a fixed factor while three machine operators are randomly selected ,which should be considered as a random factor. 
+```
+te.data = read.csv('C:/Users/Minkun/Desktop/classes_1/30250_Linear Models ii/LAB/data/FiberStrength.csv', header = T)
+colnames(te.data)[1] = 'Operator'
+head(te.data)
+summary(te.data)
+attach(te.data)
+Operater = as.factor(Operator)
+Machine = as.factor(Machine)
+is.factor(Machine)
+aov = aov(Strength ~ Machine + Operator + Machine*Operator); summary(aov)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33503644-6ed7e42e-d6dc-11e7-9fd0-47cfac51ab06.jpg" width="600" height="250" />    
+
+  - Here we cannot rely on F-value and P-value because here R does not differentiate the fixed factor and random factor, but SS-values are still valid; therefore, we can carry on the hypothesis test. 
+```
+with(te.data, interaction.plot(Machine,Operator,Strength, type = 'b'))
+
+aov.ab = aov(Strength ~ Machine*Operator); summary(aov.ab)
+```
+
+
+  
 
 
 
