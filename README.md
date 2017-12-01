@@ -134,6 +134,9 @@ __Process:__
    - What we are aiming at is to build the best regression model by investigating the predictors’ contributions to a response variable, and the **possible interactions** between predictors. 
    - Once we finalize our model,  we would check that the model assumptions are satisﬁed, so that we ensure the reliability of the model and carry out an actual prediction for a given data point.  
    - First, plotting relationships between variables and producing a correlation matrix can give us a hint where to start dealing with collinearity that might reside within the variables.
+   - From the matrix below, we can expect that the response variable is somewhat correlated with ‘Murder’, ‘HS.Grad’, and ‘Illiteracy’ variables. 
+   - Also, we can consider some significant correlations going on between “Murder & Illiteracy”, “HS.Grad & Illiteracy”, “Frost & Illiteracy”, “Income & HS.Grad”, thus need to start partially mitigating this multicollinearity, centering the predictors as follows.  
+   
 ```
 census.data <- read.csv('C:/Users/Minkun/Desktop/classes_1/30250_Linear Models ii/LAB/data/USCensusData.csv', header = T)
 pairs(census.data)
@@ -146,15 +149,22 @@ census.data$cFrost = census.data$Frost - mean(census.data$Frost)
 census.data$cIncome = census.data$Income - mean(census.data$Income); census.data
 ```
 <img src="https://user-images.githubusercontent.com/31917400/33500882-6458f358-d6d2-11e7-9adc-ec92643d615b.jpg" />
-
    
  - **>Step 2. - Build the model:**  
-   - We use simple linear regression to model the log of health care spending as a function of the log of GDP per capita. 
-   - With the regression mode
+   - We fit the model using the centered version of the variables (model_1).
+```
+fitfull <- lm(Life.Exp~cIlliteracy+cMurder+cHS.Grad+Population+cIncome+cFrost+Area + cIlliteracy*cMurder + 
+                cIlliteracy*cHS.Grad + cIlliteracy*cFrost + cIncome*cHS.Grad, data = census.data); summary(fitfull)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33501202-9c3cb790-d6d3-11e7-9c46-b42411b5df0a.jpg" width="500" height="250" />
 
-
-
-
+   - As can be seen in this table, the relations between “Murder & Illiteracy”, “HS.Grad & Illiteracy”, “Frost & Illiteracy”, “Income & HS.Grad” are not significant; therefore, our model might not need those interaction terms. Next, we need to carry out the global F-test (lack of fit test), using the rest of the terms – Area, Population, centered-illiteracy, centered-Murder, centered- HS.Grad, centered-Income, centered-Frost. We build the new model with using those predictors (model_2).
+```
+census.data2=census.data[,-c(1,3,4,6,7,8)]
+fitfull2 <- lm(Life.Exp~cIlliteracy+cMurder+cHS.Grad+cIncome+cFrost+Population+Area, data=census.data2); summary(fitfull2)
+anova(fitfull2)
+```
+<img src="https://user-images.githubusercontent.com/31917400/33501505-b39019fe-d6d4-11e7-98d3-109bb86b830d.jpg" width="500" height="300" />
 
 
 
