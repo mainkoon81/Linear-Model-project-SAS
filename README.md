@@ -26,7 +26,7 @@ __Lab-06.__ Mailing catalog helps increase revenue?
   - language: Alteryx
   - Multiple Linear Model
   
-__Lab-07.__ 
+__Lab-07.__ Predicting housing prices
   - language: Python
   - Multiple Linear Model  
   
@@ -345,9 +345,11 @@ It gives an answer of approximately $47,224.87, which would be our estimated tot
 
 
 ----------------------------------------------------------------------
-### >Lab-07. M
+### >Lab-07. Predicting housing prices
 
-__Story:__ We started working for a company that manufactures and sells high-end home goods. Last year the company sent out its first print catalog, and is preparing to
+__package:__ Numpy, Pandas, Matplotlib.pyplot, Statsmodels.api, Sklearn
+
+
 
 
 
