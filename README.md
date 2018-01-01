@@ -25,6 +25,11 @@ __Lab-05.__ Predicting diamond prices
 __Lab-06.__ Mailing catalog helps increase revenue?
   - language: Alteryx
   - Multiple Linear Model
+  
+__Lab-07.__ 
+  - language: Python
+  - Multiple Linear Model  
+  
 ----------------------------------------------------------------------
 ### >Lab-01. predicting the TCDD level in 'fat tissue'
 
@@ -337,4 +342,24 @@ It gives an answer of approximately $47,224.87, which would be our estimated tot
      - The average gross margin through catalogs: 47,225 x 0.5 =  23,612.5
      - Total profit: 23,612.5 - 1,625 = 21,987.5
    - It seems the expected profit contribution exceeds $10,000, thus we can conclude that the company should send out the catalogs. 
-   
+
+
+----------------------------------------------------------------------
+### >Lab-07. M
+
+__Story:__ We started working for a company that manufactures and sells high-end home goods. Last year the company sent out its first print catalog, and is preparing to
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
