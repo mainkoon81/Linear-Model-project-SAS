@@ -454,6 +454,42 @@ result.summary()
 <img src="https://user-images.githubusercontent.com/31917400/34470448-d6da31bc-ef28-11e7-971a-0c6ce1242b29.jpg" width="600" height="160" />
 
 Using a multiple linear regression model shows only 'area' as statistically significant..
+<img src="https://user-images.githubusercontent.com/31917400/34470479-e4ce5d60-ef29-11e7-8346-8693fba2d9dd.jpg" />
+
+```
+X = df[['intercept', 'area', 'bedrooms', 'bathrooms']]
+Y = df['price']
+
+np.linalg.inv(np.dot(X.transpose(), X))
+
+np.dot(np.linalg.inv(np.dot(X.transpose(), X)), X.transpose())
+```
+Here comes the coefficientssssss !! the slopes ! 
+```
+np.dot(np.dot(np.linalg.inv(np.dot(X.transpose(), X)), X.transpose()), Y)
+```
+array([ 10072.10704672,    345.91101884,  -2925.80632467,   7345.3917137 ])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
