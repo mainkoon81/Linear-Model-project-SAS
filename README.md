@@ -395,13 +395,10 @@ Plotting Scatter
 ```
 plt.scatter(df['CrimePerCapita'], df['MedianHomePrice']);
 ```
-or showing the fitted line
+Showing the fitted line? then we import packages
 ```
 import plotly.plotly as py
 import plotly.graph_objs as go
-```
-MatPlotlib
-```
 import matplotlib.pyplot as plt
 from matplotlib import pylab
 ```
@@ -412,9 +409,7 @@ from scipy import stats
 
 xi = arange(0,100)
 A = array([ xi, ones(100)])
-```
-(Almost) linear sequence
-```
+
 y = df['MedianHomePrice']
 x = df['CrimePerCapita']
 ```
@@ -428,7 +423,7 @@ plt.xlabel('Crime/Capita');
 plt.ylabel('Median Home Price');
 pylab.title('Median Home Price vs. CrimePerCapita');
 ```
-<img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="300" height="160" /> 
+<img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="400" height="200" /> 
 
 
 
