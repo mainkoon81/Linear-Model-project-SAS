@@ -518,30 +518,37 @@ results3.summary()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34470665-79e4f81a-ef2e-11e7-9808-bf1aa59dca17.jpg" width="600" height="200" />
 
-This works..
+This works too..
 ```
 df['intercept'] = 1
 df[['A', 'B', 'C']] = pd.get_dummies(df['neighborhood'])
 df[['lodge', 'ranch', 'victorian']] = pd.get_dummies(df['style'])
 ```
+How are 'price' and 'area' with respect to 'style' ?
+```
+df.groupby('style').mean()[['price', 'area']]
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470796-9accf5fc-ef31-11e7-9bee-487b96b50736.jpg" width="200" height="90" />
+
 ## How about the interaction terms?
 <img src="https://user-images.githubusercontent.com/31917400/34470700-65323b8e-ef2f-11e7-9f44-13d469fac871.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/34470712-98be3336-ef2f-11e7-95ae-d1f17a20444c.png" width="400" height=180" />
 
+Fit a model to predict price using 'area x area' - squared(interaction term). Also use the style of the home
+```
+df['area_squared'] = df['area']*df['area']
 
+lm2 = sm.OLS(df['price'], df[['intercept', 'area', 'area_squared', 'ranch', 'victorian']])
+results2 = lm2.fit()
+results2.summary()
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
+###  5 issues of Multi-LinearModels ?
+ - Non-linearity of the response-predictor relationships
+ - Correlation of error terms
+ - Non-constant Variance and Normally Distributed Errors
+ - Outliers/ High leverage points
+ - Multi-Collinearity
 
 
 
