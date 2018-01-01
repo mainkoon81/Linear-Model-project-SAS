@@ -395,29 +395,28 @@ Plotting a Scatter
 ```
 plt.scatter(df['CrimePerCapita'], df['MedianHomePrice']);
 ```
-Showing the fitted line? then we import packages
+### Showing the fitted line? then we import packages
 ```
 import plotly.plotly as py
 import plotly.graph_objs as go
 import matplotlib.pyplot as plt
 from matplotlib import pylab
-```
-Scientific libraries
-```
 from numpy import arange,array,ones
 from scipy import stats
-
+```
+Build elements
+```
 xi = arange(0,100)
-A = array([ xi, ones(100)])
+A = array([xi, ones(100)])
 
 y = df['MedianHomePrice']
 x = df['CrimePerCapita']
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)
+line = slope*xi+intercept
 ```
 Generated linear fit
 ```
-slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)
-line = slope*xi+intercept
-
 plt.plot(x,y,'o', xi, line);
 plt.xlabel('Crime/Capita');
 plt.ylabel('Median Home Price');
@@ -425,11 +424,36 @@ pylab.title('Median Home Price vs. CrimePerCapita');
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="400" height="300" /> 
 
-
 2) Housing price data
 <img src="https://user-images.githubusercontent.com/31917400/34470325-ee805974-ef26-11e7-89c0-5e0ecdd961b9.jpg" width="600" height="160" /> 
 
+```
+df['intercept'] = 1
 
+lm = sm.OLS(df['price'], df[['intercept', 'area']])
+result_area = lm.fit()
+result_area.summary()
+
+lm = sm.OLS(df['price'], df[['intercept', 'bathrooms']])
+result_bath = lm.fit()
+result_bath.summary()
+
+lm = sm.OLS(df['price'], df[['intercept', 'bedrooms']])
+result_bed = lm.fit()
+result_bed.summary()
+```
+If you sum the R-squared values from each of the three simple linear regression models together...The sum of the $R^2$ values is greater than 1, but how is this possible? It turns this is possible, because our explanatory variables are not independent of one another.
+
+ - Let's build the multi-LM
+   - First, Add all quantitative variables...
+```   
+lm = sm.OLS(df['price'], df[['intercept', 'area', 'bedrooms', 'bathrooms']])
+result = lm.fit()
+result.summary()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470448-d6da31bc-ef28-11e7-971a-0c6ce1242b29.jpg" width="600" height="160" />
+
+Using a multiple linear regression model shows only 'area' as statistically significant..
 
 
 
