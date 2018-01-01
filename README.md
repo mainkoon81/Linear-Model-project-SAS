@@ -377,7 +377,7 @@ df2 = pd.DataFrame(boston_data.data)
 df['CrimePerCapita'] = df2.iloc[:,0];
 df.head()
 ```
-<img src="https://user-images.githubusercontent.com/31917400/34470189-d32cab94-ef23-11e7-90d4-bf83b5bc2303.jpg" width="300" height="160" /> 
+<img src="https://user-images.githubusercontent.com/31917400/34470189-d32cab94-ef23-11e7-90d4-bf83b5bc2303.jpg" width="100" height="60" /> 
 
 Before we fit our model, we need to ensure to add a column for intercept.(statmodel doesn't do this so..)
 ```
@@ -389,7 +389,7 @@ lm = sm.OLS(df['MedianHomePrice'], df[['intercept', 'CrimePerCapita']])
 results = lm.fit()
 results.summary()
 ```
-<img src="https://user-images.githubusercontent.com/31917400/34470211-793563c8-ef24-11e7-970f-efd7808696c4.jpg" /> 
+<img src="https://user-images.githubusercontent.com/31917400/34470211-793563c8-ef24-11e7-970f-efd7808696c4.jpg" width="600" height="160" /> 
 
 Plotting a Scatter
 ```
@@ -425,7 +425,7 @@ pylab.title('Median Home Price vs. CrimePerCapita');
 <img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="400" height="300" /> 
 
 2) Housing price data
-<img src="https://user-images.githubusercontent.com/31917400/34470325-ee805974-ef26-11e7-89c0-5e0ecdd961b9.jpg" width="600" height="160" /> 
+<img src="https://user-images.githubusercontent.com/31917400/34470325-ee805974-ef26-11e7-89c0-5e0ecdd961b9.jpg" width="250" height="60" /> 
 
 ```
 df['intercept'] = 1
