@@ -487,7 +487,7 @@ df_new.head()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34470547-a465cd9c-ef2b-11e7-91a9-e2880b822c0f.jpg" width="500" height="90" />
 
-Note: It automatically generate column names - A, B, C
+Note: It automatically generate column names - A, B, C (neighborhood)
 ```
 df_new['intercept'] = 1
 
@@ -496,6 +496,27 @@ results = lm2.fit()
 results.summary()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34470573-62b46b82-ef2c-11e7-9025-52bb9f6546a3.jpg" width="600" height="160" />
+
+Plotting the price with respect to categorical predictors
+```
+plt.hist(df_new.query("C == 1")['price'], alpha = 0.3, label = 'C');
+plt.hist(df_new.query("A == 1")['price'], alpha = 0.3, label = 'A');
+
+plt.legend();
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470621-73192372-ef2d-11e7-8dc6-0b50914b2a41.jpg" width="200" height="90" />
+
+Deal with the rest
+```
+type_dummies = pd.get_dummies(df['style'])
+df_new = df_new.join(type_dummies)
+df_new.head()
+
+lm3 = sm.OLS(df_new['price'], df_new[['intercept', 'B', 'C', 'lodge', 'victorian', 'bedrooms', 'bathrooms']])
+results3 = lm3.fit()
+results3.summary()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470665-79e4f81a-ef2e-11e7-9808-bf1aa59dca17.jpg" width="600" height="200" />
 
 
 
