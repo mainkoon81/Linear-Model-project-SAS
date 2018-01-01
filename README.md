@@ -349,10 +349,86 @@ It gives an answer of approximately $47,224.87, which would be our estimated tot
 
 __package:__ Numpy, Pandas, Matplotlib.pyplot, Statsmodels.api, Sklearn
 
+__Data:__ two datasets
 
+>Boston Housing Data
 
+The Boston housing data is a built in dataset in the sklearn library of python. You will be using two of the variables from this dataset, which are stored in df. 
+ - the median home price in thousands of dollars 
+ - the crime per capita in the area of the home are shown above.
 
+>Housing Price Data
+ - house_id
+ - neighborhood
+ - area
+ - bedrooms
+ - bathrooms
+ - style
+ - price
 
+1) Boston Housing Data
+```
+from sklearn.datasets import load_boston
+
+boston_data = load_boston()
+df = pd.DataFrame()
+df['MedianHomePrice'] = boston_data.target
+df2 = pd.DataFrame(boston_data.data)
+df['CrimePerCapita'] = df2.iloc[:,0];
+df.head()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470189-d32cab94-ef23-11e7-90d4-bf83b5bc2303.jpg" width="300" height="160" /> 
+
+Before we fit our model, we need to ensure to add a column for intercept.(statmodel doesn't do this so..)
+```
+df['intercept'] = 1
+```
+OLS? 'ordinary least squared' then provide 'y' then a list of 'x' then we fit and store in result.
+```
+lm = sm.OLS(df['MedianHomePrice'], df[['intercept', 'CrimePerCapita']])
+results = lm.fit()
+results.summary()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470211-793563c8-ef24-11e7-970f-efd7808696c4.jpg" /> 
+
+Plotting Scatter
+```
+plt.scatter(df['CrimePerCapita'], df['MedianHomePrice']);
+```
+or showing the fitted line
+```
+import plotly.plotly as py
+import plotly.graph_objs as go
+```
+MatPlotlib
+```
+import matplotlib.pyplot as plt
+from matplotlib import pylab
+```
+Scientific libraries
+```
+from numpy import arange,array,ones
+from scipy import stats
+
+xi = arange(0,100)
+A = array([ xi, ones(100)])
+```
+(Almost) linear sequence
+```
+y = df['MedianHomePrice']
+x = df['CrimePerCapita']
+```
+Generated linear fit
+```
+slope, intercept, r_value, p_value, std_err = stats.linregress(x,y)
+line = slope*xi+intercept
+
+plt.plot(x,y,'o', xi, line);
+plt.xlabel('Crime/Capita');
+plt.ylabel('Median Home Price');
+pylab.title('Median Home Price vs. CrimePerCapita');
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="300" height="160" /> 
 
 
 
