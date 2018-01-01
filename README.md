@@ -445,7 +445,7 @@ result_bed.summary()
 If you sum the R-squared values from each of the three simple linear regression models together...The sum of the $R^2$ values is greater than 1, but how is this possible? It turns this is possible, because our explanatory variables are not independent of one another.
 
  - Let's build the multi-LM
-   - First, Add all quantitative variables...
+## First, add all quantitative variables...
 ```   
 lm = sm.OLS(df['price'], df[['intercept', 'area', 'bedrooms', 'bathrooms']])
 result = lm.fit()
@@ -470,7 +470,28 @@ np.dot(np.dot(np.linalg.inv(np.dot(X.transpose(), X)), X.transpose()), Y)
 ```
 array([ 10072.10704672,    345.91101884,  -2925.80632467,   7345.3917137 ])
 
+## Next, add all categorical predictors
+But what about categorical predictors - neighborhood , style ?  We cannot directly add a categorical variable into your model. 
 
+#### We encode the each dummy predictors then drop one of the dummy columns 
+In order to make your matrices full rank(to make (X^T X) invertible) - all of the columns of X must be linearly independent.
+<img src="https://user-images.githubusercontent.com/31917400/34470528-f065674e-ef2a-11e7-8926-36a25dae7daf.png" width="150" height="200" />
+```
+neighborhood_dummies = pd.get_dummies(df['neighborhood'])
+df_new = df.join(neighborhood_dummies)
+df_new.head()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470547-a465cd9c-ef2b-11e7-91a9-e2880b822c0f.jpg" width="500" height="90" />
+
+Note: It automatically generate column names - A, B, C
+```
+df_new['intercept'] = 1
+
+lm2 = sm.OLS(df_new['price'], df_new[['intercept', 'B', 'C']])
+results = lm2.fit()
+results.summary()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34470573-62b46b82-ef2c-11e7-9025-52bb9f6546a3.jpg" width="600" height="160" />
 
 
 
