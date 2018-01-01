@@ -1,4 +1,4 @@
-# Linear-Model-project (SAS or R or Alteryx)
+# Linear-Model-project (SAS or R or Alteryx or Python)
 
 ### [Contents] 
 
