@@ -391,7 +391,7 @@ results.summary()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34470211-793563c8-ef24-11e7-970f-efd7808696c4.jpg" /> 
 
-Plotting Scatter
+Plotting a Scatter
 ```
 plt.scatter(df['CrimePerCapita'], df['MedianHomePrice']);
 ```
@@ -423,10 +423,11 @@ plt.xlabel('Crime/Capita');
 plt.ylabel('Median Home Price');
 pylab.title('Median Home Price vs. CrimePerCapita');
 ```
-<img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="400" height="200" /> 
+<img src="https://user-images.githubusercontent.com/31917400/34470251-98d42060-ef25-11e7-9cda-14c408a93ed5.jpg" width="400" height="300" /> 
 
 
-
+2) Housing price data
+<img src="https://user-images.githubusercontent.com/31917400/34470325-ee805974-ef26-11e7-89c0-5e0ecdd961b9.jpg" width="600" height="160" /> 
 
 
 
