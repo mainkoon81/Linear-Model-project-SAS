@@ -518,18 +518,17 @@ results3.summary()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34470665-79e4f81a-ef2e-11e7-9808-bf1aa59dca17.jpg" width="600" height="200" />
 
-## How about the interaction terms?
-<img src="https://user-images.githubusercontent.com/31917400/34470700-65323b8e-ef2f-11e7-9f44-13d469fac871.jpg" />
-<img src="https://user-images.githubusercontent.com/31917400/34470712-98be3336-ef2f-11e7-95ae-d1f17a20444c.png" width="400" height=180" />
+This works..
 ```
 df['intercept'] = 1
 df[['A', 'B', 'C']] = pd.get_dummies(df['neighborhood'])
 df[['lodge', 'ranch', 'victorian']] = pd.get_dummies(df['style'])
-
-df.head(6)
-
-
 ```
+## How about the interaction terms?
+<img src="https://user-images.githubusercontent.com/31917400/34470700-65323b8e-ef2f-11e7-9f44-13d469fac871.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/34470712-98be3336-ef2f-11e7-95ae-d1f17a20444c.png" width="400" height=180" />
+
+
 
 
 
