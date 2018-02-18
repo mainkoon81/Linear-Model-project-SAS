@@ -218,6 +218,8 @@ Machine = as.factor(Machine)
 is.factor(Machine)
 aov = aov(Strength ~ Machine + Operator + Machine*Operator); summary(aov)
 ```
+<img src="https://user-images.githubusercontent.com/31917400/36358119-bed5f490-1500-11e8-9810-bd7c24f00dc4.jpg" />    
+
   - Here we cannot rely on F-value and P-value because here R does not differentiate the fixed factor and random factor, but SS-values are still valid; therefore, we can carry on the hypothesis test. 
 ```
 with(te.data, interaction.plot(Machine,Operator,Strength, type = 'b'))
