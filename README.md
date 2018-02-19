@@ -241,7 +241,7 @@ aov.ab = aov(Strength ~ Machine*Operator); summary(aov.ab)
  - F = MSB/MSAB = 85.56/14.06 = 6.085349 -> close to 1.
  - F(0.05), (1, 3) = 10.13 -> therefore, we fail to reject H0, i.e **there is no significant random effect.**
 
-> This test does fully convince me because once there is no interaction effect discovered, we can investigate the source of the contribution to the fixed effect of Machine factor as well as the random effect of Operator factor. In other word, the variance of interaction term is not included in MSA of Machine factor and MSB of Operator factor. 
+> This test does fully convince me because once there is no interaction effect discovered, we can investigate the source of the contribution to the fixed effect of Machine factor as well as the random effect of Operator factor `(1|RandomFactor)`. In other word, the variance of interaction term is not included in MSA of Machine factor and MSB of Operator factor. 
 
 > Not to mention, we can estimate the value of fixed, random effect and the variances of interaction, fixed, random factor. The estimate of the variance of response variable would be equivalent to that of the variance of residual.  
 
